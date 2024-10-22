@@ -325,7 +325,7 @@ $ ./EMP_preprocess.sh 1998
 
 This will convert the .ms files to .csv, perform local sorting, and alignment processing on the .ms files. This will populate the `./AlphaDAWG/Data/VCF` folder with the alignment processed .csv files: `output_0.csv`, `output_1.csv`.. and so on. Also, a file named `Starting Positions of the samples.csv` will be saved in the `./AlphaDAWG/Data/VCF` folder that is of length 1998 representing the chromosomal positions.
 
-# CSV to wavelet transformation Script
+## CSV to wavelet transformation Script
 
 This script processes CSV files by applying wavelet decomposition. You will need to put `../Data` as the output directory and the number of observations to parse and wavelet-transform.
 
@@ -344,7 +344,7 @@ Each `64 x 64` matrix yields a total of 4096 curvelet coefficients in the `./Alp
 
 
 
-# CSV to curvelet transformation Script
+## CSV to curvelet transformation Script
 
 Now we have to perform curvelet transformation for our empirical samples. We have to follow the same steps as we outlined in the **Curvelet transformation** section for  opening matlab in the terminal. Also, we need to set the working directory of Matlab to `./fdct_wrapping_matlab` by typing
     
