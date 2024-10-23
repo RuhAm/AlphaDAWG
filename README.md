@@ -433,7 +433,7 @@ Trained models
 =============
 We have made available the trained mdoels in the `./AlphaDAWG/Trained models` directory inside `./AlphaDAWG/Trained models` folder. These models are using the CEU_2 dataset with 10000 train observations per class and 1000 test observations per class.
 
-
+*Note:* The current implementation is limited to phased data but we intend to integrate the option to operate on unphased data in the future.
 
 License
 =============
