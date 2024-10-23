@@ -11,7 +11,7 @@ software package can be used for applying α-DAWG to classify any
 genetic regions into sweep or neutral (i.e, regions showing signs of
 selective sweep and region without them). We will show how to work with empirical data in the `.vcf` format and generate prediction of empirical samples. Users can generate any number of samples of both neutral and sweep classes based on their experimental need. 
 
-============
+
 
 
 
@@ -22,10 +22,10 @@ First clone the repo using the following command
 
         git clone https://github.com/RuhAm/AlphaDAWG
 
-We will need `python` and `R` and `matlab` installed for different parts of the
+We will need `python3` and `R` and `matlab` installed for different parts of the
 project.
 
-For `python`, please install the following packages in a `conda` virtual
+For `python` dependencies, please install the following packages in a `conda` virtual
 environment. Instructions for creating this virtual environment and installing the packages are available in the `conda_setup.txt` file inside  the `./AlphaDAWG/Scripts` folder. 
 
 For `R`, the required packages can be installed by running the `install_packages.R` script in the terminal.
@@ -180,7 +180,7 @@ This script allows users to train three nonlinear α-DAWG models for detecting p
 
 ## How to Run
     
-. **Follow the prompts** to provide the following inputs:
+ **Follow the prompts** to provide the following inputs:
    - Number of training observations per class.
    - Number of testing observations per class.
    - Choose a model from the following options:
@@ -233,7 +233,7 @@ This script allows users to train three nonlinear α-DAWG models for detecting p
 
 ## How to Run
     
-. **Follow the prompts** to provide the following inputs:
+ **Follow the prompts** to provide the following inputs:
    - Number of training observations per class.
    - Number of testing observations per class.
    - Choose a model from the following options:
