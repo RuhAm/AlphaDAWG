@@ -37,9 +37,17 @@ For `R`, the required packages can be installed by running the `install_packages
 
 Also, users will need to install [Discoal](https://github.com/kr-colab/discoal) for utilzing our data generation pipeline.
 
-Please note that, for using this software on windows you will need [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) and [MinGW](https://www.mingw-w64.org/) installed in your system as discoal is run using the make command.
+Please note that, for using this software on windows you will need [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) and [MinGW](https://www.mingw-w64.org/) installed in your system as [Discoal](https://github.com/kr-colab/discoal) is run using the make command.
 
-After Discoal installation in the `./AlphaDAWG` directory , please copy the "discoal" file in the Scripts directory.
+        
+
+ After extracting Discoal in `./AlphaDAWG` directory, you will need to install using the following command:
+
+        make discoal
+
+This will install discoal and create a executable file named "discoal" in the `./AlphaDAWG/discoal-master`  folder.
+
+Please copy the "discoal" executable file from `./AlphaDAWG/discoal-master` in the `./AlphaDAWG/Scripts` folder.
 
 
 
