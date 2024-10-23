@@ -75,11 +75,8 @@ First, we need to change our working directory to the folder
 
  The following command is optional and needed to make each of the bash script executatable if you are not the super user of your system. 
  
-        chmod +x your-script.sh
+        chmod +x generate_replicates.sh
 
-For example, you will run
-
-       chmod +x generate_replicates.sh
 
 to  make the `generate_replicates.sh` executable.
 
@@ -113,7 +110,13 @@ Users can preprocess the sweep and neutral .ms files using local sorting and ali
      
 Then running the following command will output 100 sweep and neutral observations that are locally sorted and alignment processed in `./AlphaDAWG/Data/` folder.
 
-    ./preprocessing_pipeline.sh ../Data 100
+Please make sure the .sh file execultable using where your-script in this case is `preprocessing_pipeline.sh`
+
+        chmod +x preprocessing_pipeline.sh
+
+Now let's run the pipeline,
+
+        ./preprocessing_pipeline.sh ../Data 100
 
 
 
@@ -189,6 +192,12 @@ This script allows users to train three nonlinear α-DAWG  models for detecting 
 
 1. **Run the script**:
 
+Please make sure the .sh file execultable using where your-script in this case is `lin_models.sh`
+
+        chmod +x lin_models.sh
+
+Now run the following command:
+
 ```bash
     ./lin_models.sh 
 ```
@@ -213,11 +222,11 @@ This script allows users to train three nonlinear α-DAWG models for detecting p
 
 When you run the script, it will prompt for input. Here's an example of interaction:
 ```bash
-$ ./nonlin_models.sh 
+$ ./lin_models.sh 
 
 
-Enter the number of train observations per class: 100
-Enter the number of test observations per class: 50
+Enter the number of train observations per class: 80
+Enter the number of test observations per class: 20
 Choose the model to be trained: 
 
 1 - Wavelet 
@@ -231,7 +240,7 @@ Use alignment processing? (Press 1 for Yes, 0 for No): 1
 
 It will output: 
 
-Training Wavelet model with 100 train observations per class, 50 test observations per class, and alignment processing: ...
+Training Wavelet model with 80 train observations per class, 20 test observations per class, and alignment processing: ...
 ```
 The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG/Data/Results` and will have the following format: `Lin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
 
@@ -241,6 +250,12 @@ Nonlinear Model training and testing
 This script allows users to train three nonlinear α-DAWG  models for detecting positive natural selection: α-DAWG[W],α-DAWG[C], and α-DAWG[W-C]. The user can specify the number of training and testing observations and whether to apply alignment processing or just use the locally sorted alignments.
 
 1. **Run the script**:
+
+Please make sure the .sh file execultable using where your-script in this case is `nonlin_models.sh`
+
+        chmod +x nonlin_models.sh
+
+Now run the following command:
 
 ```bash
     ./nonlin_models.sh 
@@ -269,8 +284,8 @@ When you run the script, it will prompt for input. Here's an example of interact
 $ ./nonlin_models.sh 
 
 
-Enter the number of train observations per class: 100
-Enter the number of test observations per class: 50
+Enter the number of train observations per class: 80
+Enter the number of test observations per class: 20
 Choose the model to be trained: 
 
 1 - Wavelet 
@@ -284,7 +299,7 @@ Use alignment processing? (Press 1 for Yes, 0 for No): 1
 
 It will output: 
 
-Training Wavelet model with 100 train observations per class, 50 test observations per class, and alignment processing: ...
+Training Wavelet model with 80 train observations per class, 20 test observations per class, and alignment processing: ...
 ```
 The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG/Data/Results` and will have the following format: `Nonlin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
 
@@ -306,7 +321,14 @@ This script converts VCF (Variant Call Format) files into ms files. It allows th
 
 ### Steps
 
+Please make sure the .sh file execultable using where your-script in this case is `VCF_to_MS.sh`
+
+        chmod +x VCF_to_MS.sh
+
+Now run the following command:
+
 1. **Run the script** by passing the chromosome number as an argument:
+
     ```bash
     ./VCF_to_MS.sh <chromosome_number>
     ```
@@ -332,7 +354,17 @@ This script preprocesses the ms files to CSV and performs alignment processing.
 
 ### Steps
 
-1. **Run the script** by passing the chromosome number as an argument:
+1. **Run the script** 
+
+Please make sure the .sh file execultable using where your-script in this case is `EMP_preprocess.sh`
+
+        chmod +x EMP_preprocess.sh
+
+Now run the following command:
+
+
+We pass the chromosome number as an argument:
+
     ```bash
     ./EMP_preprocess.sh <number of observations>
     ```
@@ -350,6 +382,15 @@ This will convert the .ms files to .csv, perform local sorting, and alignment pr
 This script processes CSV files by applying wavelet decomposition. You will need to put `../Data` as the output directory and the number of observations to parse and wavelet-transform.
 
 1. **Run the script** by passing the `../Data` as the output directory and the number of observations as an argument:
+
+
+Please make sure the .sh file execultable using where your-script in this case is `./vcf_wav.sh`
+
+        chmod +x ./vcf_wav.sh
+
+Now run the following command:
+
+
     ```bash
     ./vcf_wav.sh <output_directory> <observations>
     ```
@@ -409,6 +450,12 @@ Empirical Testing
 
 1. **Run the script**:
 
+Please make sure the .sh file execultable using where your-script in this case is `./Alpha_emp.sh`
+
+        chmod +x ./Alpha_emp.sh
+
+Now we will run:
+
 ```bash
     ./Alpha_emp.sh
  ```
@@ -434,16 +481,16 @@ When you run the script, it will prompt for input. Here's an example of interact
 ```bash
 $ ./Alpha_emp.sh
 Enter the number of train observations per class:
-100
+80
 Enter the number of test observations per class:
-50
+20
 Choose the model to be trained:
 
 1 - Wavelet-Curvelet
 1
 Use alignment processing? (Press 1 for Yes, 0 for No):
 1
-Training nonlinear Wavelet-Curvelet model with 100 train observations per class, 50 test simulated observations per class, and alignment processing: ...
+Training nonlinear Wavelet-Curvelet model with 80 train observations per class, 20 test simulated observations per class, and alignment processing: ...
 ```
 The probabilities of the empirical test samples will be saved in the  `./AlphaDAWG/Data/VCF` folder using the following name prob_vcf.csv. 
 
