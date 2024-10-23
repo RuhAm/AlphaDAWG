@@ -336,9 +336,10 @@ Now run the following command:
 
 ### Example Usage
 
-       ```bash
-    ./VCF_to_MS.sh CEU22
-    ```
+        ./VCF_to_MS.sh CEU22
+
+
+
 
 This will populate the `./AlphaDAWG/Data/VCF` folder with the .ms files `output_0.ms`, `output_1.ms`.. and so on.
 
