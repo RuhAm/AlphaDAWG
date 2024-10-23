@@ -64,7 +64,7 @@ Note:
 
 Please note that the default discoal functionality restricts generating sites as high as 220020 but in our case we will need to change it to 110000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
 
-Now we will compile discoal again from the `./AlphaDAWG/discoal-master ` directory, you will need to install using the following command:
+Now we will compile discoal again from the `./AlphaDAWG/discoal-master ` directory. You will need to install using the following command:
 
         make discoal
 
@@ -336,9 +336,10 @@ Now run the following command:
 
 ### Example Usage
 
-```bash
-$ ./VCF_to_MS.sh CEU22
-```
+        ```bash
+        ./VCF_to_MS.sh CEU22
+        ```
+        
 This will populate the `./AlphaDAWG/Data/VCF` folder with the .ms files `output_0.ms`, `output_1.ms`.. and so on.
 
 Please note that an example sample file CEU22.vcf has been included in `./AlphaDAWG/Data/` folder which you can utilize. 
