@@ -111,7 +111,7 @@ Users can preprocess the sweep and neutral .ms files using local sorting and ali
      
 Then running the following command will output 100 sweep and neutral observations that are locally sorted and alignment processed in `./AlphaDAWG/Data/` folder.
 
-Please make sure the .sh file execultable using where your-script in this case is `preprocessing_pipeline.sh`
+Please make sure the .sh file execultable using 
 
         chmod +x preprocessing_pipeline.sh
 
@@ -193,7 +193,7 @@ This script allows users to train three nonlinear α-DAWG  models for detecting 
 
 1. **Run the script**:
 
-Please make sure the .sh file execultable using where your-script in this case is `lin_models.sh`
+Please make sure the .sh file execultable using
 
         chmod +x lin_models.sh
 
@@ -252,7 +252,7 @@ This script allows users to train three nonlinear α-DAWG  models for detecting 
 
 1. **Run the script**:
 
-Please make sure the .sh file execultable using where your-script in this case is `nonlin_models.sh`
+Please make sure the .sh file execultable using 
 
         chmod +x nonlin_models.sh
 
@@ -322,7 +322,7 @@ This script converts VCF (Variant Call Format) files into ms files. It allows th
 
 ### Steps
 
-Please make sure the .sh file execultable using where your-script in this case is `VCF_to_MS.sh`
+Please make sure the .sh file execultable using 
 
         chmod +x VCF_to_MS.sh
 
@@ -359,7 +359,7 @@ This script preprocesses the ms files to CSV and performs alignment processing.
 
 1. **Run the script** 
 
-Please make sure the .sh file execultable using where your-script in this case is `EMP_preprocess.sh`
+Please make sure the .sh file execultable using 
 
         chmod +x EMP_preprocess.sh
 
@@ -387,7 +387,7 @@ This script processes CSV files by applying wavelet decomposition. You will need
 1. **Run the script** by passing the `../Data` as the output directory and the number of observations as an argument:
 
 
-Please make sure the .sh file execultable using where your-script in this case is `./vcf_wav.sh`
+Please make sure the .sh file execultable using 
 
         chmod +x ./vcf_wav.sh
 
@@ -453,7 +453,7 @@ Empirical Testing
 
 1. **Run the script**:
 
-Please make sure the .sh file execultable using where your-script in this case is `./Alpha_emp.sh`
+Please make sure the .sh file execultable using 
 
         chmod +x ./Alpha_emp.sh
 
