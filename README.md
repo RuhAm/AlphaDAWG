@@ -39,15 +39,6 @@ Also, users will need to install [Discoal](https://github.com/kr-colab/discoal) 
 
 Please note that, for using this software on windows you will need [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) and [MinGW](https://www.mingw-w64.org/) installed in your system as [Discoal](https://github.com/kr-colab/discoal) is run using the make command.
 
-        
-
- After extracting Discoal in `./AlphaDAWG` directory, you will need to install using the following command:
-
-        make discoal
-
-This will install discoal and create a executable file named "discoal" in the `./AlphaDAWG/discoal-master`  folder.
-
-Please copy the "discoal" executable file from `./AlphaDAWG/discoal-master` in the `./AlphaDAWG/Scripts` folder.
 
 
 
@@ -68,6 +59,18 @@ Data Simulation
 
 
 Users can generate (under CEU demographic model) sweep and neutral replicates using our Data Generation shell script `generate_replicates.sh`. This shell function has two arguments- <replicate_type> and <number_of_replicates>. <replicate_type> takes in [sweep|neutral] as input and <number_of_replicates> takes any integer as an input.
+
+Note:
+
+Please note that the default discoal functionality restricts generating sites as high as 220020 but in our case we will need to change it to 110000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
+
+Now we will compile discoal again from the `./AlphaDAWG/discoal-master ` directory, you will need to install using the following command:
+
+        make discoal
+
+Now we need to copy the discoal executable again and paste it to the `./AlphaDAWG/Scripts/` folder
+
+Now we will work with the data generation pipeline.
 
 First, we need to change our working directory to the folder
 
@@ -91,8 +94,6 @@ are names as `neut_0.ms`, `neut_1.ms`... and so on.
         ./generate_replicates.sh neutral 100
 
 100 samples for each class will be stored in the given in the `./AlphaDAWG/Data/` folder which will need to be preprocessed.
-
-Please note that the `nSites` variable in the `ceu_sweep.py` and `ceu_neut.py` is set to 100000 in this software for ease of running (high memory demand) but you will need to change  accordingly to fit your simulation goal (*i.e.*, change   `nSites` tp 1100000 if you want to generate 1.1 Mb sequences).
 
 
 Also, please note that, `./AlphaDAWG/AlphaDAWG_simulation_scripts/` folder we provide scripts used in our study to generate constant size (Constant_1 and Constant_2) and  fluctuating size demographic data (CEU_1 and CEU_2), which users can use to generate their own training data. 
