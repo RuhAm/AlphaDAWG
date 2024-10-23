@@ -19,7 +19,7 @@ def rundiscoal(i):
 	#n_inds = 100
     sampleSize = 200
     numReplicates = 1
-    nSites = 1100000  ##1.1 Mb
+    nSites = 100000  ## change to 1.1 Mb
     theta = 4 * N0 * (1.25 * pow(10,-8)) * nSites 
 
     mean = 4 * N0 * (pow(10,-8)) * nSites 
