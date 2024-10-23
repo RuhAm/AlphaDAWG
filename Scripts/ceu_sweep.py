@@ -19,10 +19,10 @@ def rundiscoal(i):
     #n_inds = 100
     sampleSize = 200
     numReplicates = 1
-    nSites = 100000  ##1.1 Mb
-    theta = 4 * N0 * (1.25 * pow(10,-8)) * nSites ##check koiren
+    nSites = 1100000  ##1.1 Mb
+    theta = 4 * N0 * (1.25 * pow(10,-8)) * nSites ##nSites
 
-    mean = 4 * N0 * (pow(10,-8)) * nSites ##check koiren
+    mean = 4 * N0 * (pow(10,-8)) * nSites ##nSites
     upperBound = 3 * mean
 
     scLow = math.log10(0.005 * 2 * N0)
@@ -34,8 +34,8 @@ def rundiscoal(i):
     f_high = math.log10(0.1)
     f = 10**(random.uniform(f_low, f_high))
     tau_low = 0  ##variable 0 to 1200/4N0 1
-    tau_high = 1200 / (4 * N0)
-    tau = 10**(random.uniform(tau_low, tau_high))
+    tau_high = 1200 
+    tau = random.uniform(tau_low, tau_high)/ (4 * N0)
     
     # Construct the command to run Discoal
     cmd = (f"./discoal {sampleSize} {numReplicates} {nSites} -t {theta} -Pre {mean} {upperBound} "
