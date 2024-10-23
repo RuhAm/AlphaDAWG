@@ -52,8 +52,12 @@ All relevant dependencies will be installed after these steps above.
 In this software, we have utilized Bash scripting to streamline all the steps, including data generation, preprocessing, model training and testing, and empirical application.
 
 
+
+
+
 Data Simulation
 ===========================================
+
 
 Users can generate (under CEU demographic model) sweep and neutral replicates using our Data Generation shell script `generate_replicates.sh`. This shell function has two arguments- <replicate_type> and <number_of_replicates>. <replicate_type> takes in [sweep|neutral] as input and <number_of_replicates> takes any integer as an input.
 
@@ -61,8 +65,16 @@ First, we need to change our working directory to the folder
 
         cd ./AlphaDAWG/Scripts
 
+ The following command is optional and needed to make each of the bash script executatable if you are not the super user of your system. 
  
-        
+        chmod +x your-script.sh
+
+For example, you will run
+
+       chmod +x generate_replicates.sh
+
+to  make the `generate_replicates.sh` executable.
+
 Then running the following command will output 100 sweep observations in `./AlphaDAWG/Data/` folder in the following format the files
 are names as `sweep_0.ms`, `sweep_1.ms`... and so on.
 
