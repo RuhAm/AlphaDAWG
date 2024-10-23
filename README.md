@@ -329,7 +329,7 @@ This will convert the .ms files to .csv, perform local sorting, and alignment pr
 
 This script processes CSV files by applying wavelet decomposition. You will need to put `../Data` as the output directory and the number of observations to parse and wavelet-transform.
 
-1. **Run the script** by passing the chromosome number as an argument:
+1. **Run the script** by passing the `../Data` as the output directory and the number of observations as an argument:
     ```bash
     ./vcf_wav.sh <output_directory> <observations>
     ```
