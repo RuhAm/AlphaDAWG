@@ -1,0 +1,9 @@
+# How I created the conda environment for Alpha_DAWG_pipeline
+
+conda create -n Alpha_DAWG_pipeline r-base python=3.7 #install
+conda activate Alpha_DAWG_pipeline #activate
+
+
+#Running the following will install all the required libraries used for python part of the project:
+pip install -r requirements.txt #all packages
+
