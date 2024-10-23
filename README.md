@@ -91,7 +91,7 @@ are names as `sweep_0.ms`, `sweep_1.ms`... and so on.
 Then running the following command will output 100 neutral observations in `./AlphaDAWG/Data/` folder in the following format the files
 are names as `neut_0.ms`, `neut_1.ms`... and so on.
 
-        ./generate_replicates.sh neut 100
+        ./generate_replicates.sh neutral 100
 
 100 samples for each class will be stored in the given in the `./AlphaDAWG/Data/` folder which will need to be preprocessed.
 
