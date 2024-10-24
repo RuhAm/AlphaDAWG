@@ -72,7 +72,7 @@ Users can generate (under CEU demographic model) sweep and neutral replicates us
 
         
 
-Now we need to copy the discoal executable again and paste it to the `./AlphaDAWG-main/Scripts/` folder
+Now we need to copy the discoal executable and paste it to the `./AlphaDAWG-main/Scripts/` folder
 
 Now we will work with the data generation pipeline.
 
