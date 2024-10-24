@@ -389,20 +389,18 @@ This script processes CSV files by applying wavelet decomposition. You will need
 
 Please make sure the .sh file execultable using 
 
-        chmod +x ./vcf_wav.sh
+        chmod +x vcf_wav.sh
 
 Now run the following command:
 
+        ./vcf_wav.sh <output_directory> <observations>
 
-    ```bash
-    ./vcf_wav.sh <output_directory> <observations>
-    ```
+
+    
     
 ### Example Usage
 
-```bash
-$ ./vcf_wav.sh ../Data 1998
-```
+        ./vcf_wav.sh ../Data 1998
 
 Each `64 x 64` matrix yields a total of 4096 curvelet coefficients in the `./AlphaDAWG/Data/VCF` folder, the combined curvelets will be available in the same folder and will have the following filename: `EMP_Curvelets_.csv`.
 
@@ -455,7 +453,7 @@ Empirical Testing
 
 Please make sure the .sh file execultable using 
 
-        chmod +x ./Alpha_emp.sh
+        chmod +x Alpha_emp.sh
 
 Now we will run:
 
