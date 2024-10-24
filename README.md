@@ -62,7 +62,7 @@ Users can generate (under CEU demographic model) sweep and neutral replicates us
 
 Note:
 
-Please note that the default discoal functionality restricts generating sites as high as 220020 but in our case we will need to change it to 110000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
+Please note that the default discoal functionality restricts generating sites as high as 220020 but in our case we will need to change it to 1100000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
 
 Now we will compile discoal again from the `./AlphaDAWG/discoal-master ` directory. You will need to install using the following command:
 
