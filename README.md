@@ -81,7 +81,7 @@ First, we need to change our working directory to the folder
         chmod +x generate_replicates.sh
 
 
-to  make the `generate_replicates.sh` executable.
+Now we have made `generate_replicates.sh` executable.
 
 Then running the following command will output 100 sweep observations in `./AlphaDAWG/Data/` folder in the following format the files
 are names as `sweep_0.ms`, `sweep_1.ms`... and so on.
@@ -368,14 +368,14 @@ Now run the following command:
 
 We pass the chromosome number as an argument:
 
-    ```bash
-    ./EMP_preprocess.sh <number of observations>
-    ```
+        EMP_preprocess.sh <number of observations>
+
+
 
 ### Example Usage
 
 ```bash
-$ ./EMP_preprocess.sh 1998
+./EMP_preprocess.sh 1998
 ```
 
 This will convert the .ms files to .csv, perform local sorting, and alignment processing on the .ms files. This will populate the `./AlphaDAWG/Data/VCF` folder with the alignment processed .csv files: `output_0.csv`, `output_1.csv`.. and so on. Also, a file named `Starting Positions of the samples.csv` will be saved in the `./AlphaDAWG/Data/VCF` folder that is of length 1998 representing the chromosomal positions.
