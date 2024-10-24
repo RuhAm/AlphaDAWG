@@ -169,7 +169,7 @@ Now we have opened Matlab. Now change the working directory of Matlab to `./fdct
 
 Now the following command should perform the curvelet transform, where 0 stands for neutral observations and 1 stands for sweep observations.
 
-        Transform_Curvelet(<number of samples>), <0|1>, <0|1>)
+        Transform_Curvelet(<number of samples>, <0|1>, <0|1>)
         
 
 The output will be collected in a matrix, stored in `./Data/Curvelets` folder. For
@@ -178,6 +178,10 @@ example running
         Transform_Curvelet(100, 1, 1) 
 
 will transform 100 sweep samples that are both locally sorted  and alignment processed and will output two matrices of size `100 x 10521`. Each `64 x 64` matrix yields a total of 10521 curvelet coefficients in the `./AlphaDAWG/Data/Curvelets` folder, the combined curvelets will be available and will have the following filenames: `Curvelets_sweep_parse_resized_.csv`, `Curvelets_neut_parse_resized_.csv`, `Curvelets_sweep_align_resized_.csv`, `Curvelets_neut_parse_resized_.csv`
+
+Similarly, for transofrming 100 neutral samples that are both locally sorted  and alignment processed use the following command
+
+        Transform_Curvelet(100, 0, 0) 
 
 Don't forget to exit matlab with
 
