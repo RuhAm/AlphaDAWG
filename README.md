@@ -56,17 +56,21 @@ In this software, we have utilized Bash scripting to streamline all the steps, i
 
 Data Simulation
 ===========================================
+After downloading and extracting [Discoal](https://github.com/kr-colab/discoal) in our `./AlphaDAWG/` folder, we will need to install discoal. 
+
+Please note that the default discoal functionality restricts us to generates sites only as high as 220020 but in our case we will need to change it to 1100000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
+
+Now we have to use the following command to install discoal from the `./AlphaDAWG/discoal-master` directory.
+
+        make discoal
 
 
 Users can generate (under CEU demographic model) sweep and neutral replicates using our Data Generation shell script `generate_replicates.sh`. This shell function has two arguments- <replicate_type> and <number_of_replicates>. <replicate_type> takes in [sweep|neutral] as input and <number_of_replicates> takes any integer as an input.
 
-Note:
 
-Please note that the default discoal functionality restricts generating sites as high as 220020 but in our case we will need to change it to 1100000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
 
-Now we will compile discoal again from the `./AlphaDAWG/discoal-master ` directory. You will need to install using the following command:
 
-        make discoal
+        
 
 Now we need to copy the discoal executable again and paste it to the `./AlphaDAWG/Scripts/` folder
 
