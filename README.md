@@ -97,7 +97,7 @@ are names as `neut_0.ms`, `neut_1.ms`... and so on.
 
         ./generate_replicates.sh neutral 100
 
-100 samples for each class will be stored in the given in the `./AlphaDAWG/Data/` folder which will need to be preprocessed.
+100 samples for each class are now stored in the given in the `./AlphaDAWG/Data/` folder which will need to be preprocessed.
 
 
 Also, please note that, `./AlphaDAWG/AlphaDAWG_simulation_scripts/` folder we provide scripts used in our study to generate constant size (Constant_1 and Constant_2) and  fluctuating size demographic data (CEU_1 and CEU_2), which users can use to generate their own training data. 
@@ -376,7 +376,7 @@ Now run the following command:
 
 We pass the chromosome number as an argument:
 
-        EMP_preprocess.sh <number of observations>
+        ./EMP_preprocess.sh <number of observations>
 
 
 
