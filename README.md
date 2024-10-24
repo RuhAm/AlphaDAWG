@@ -22,10 +22,10 @@ First clone the repo using the following command
 
         git clone https://github.com/RuhAm/AlphaDAWG
 
-We will need `python3` and `R` and `matlab` installed for different parts of the
+We will need `Python3`, `R` and `MATLAB` installed for different parts of the
 project.
 
-For `python` dependencies, please install the following packages in a `conda` virtual
+For `Python` dependencies, please install the following packages in a `conda` virtual
 environment. Instructions for creating this virtual environment and installing the packages are available in the `conda_setup.txt` file inside  the `./AlphaDAWG/Scripts` folder. 
 
 For `R`, the required packages can be installed by running the `install_packages.R` script in the terminal.
@@ -42,7 +42,7 @@ Please note that, for using this software on windows you will need [WSL](https:/
 
 
 
-For `matlab`, we will use the
+For `MATLAB`, we will use the
 [Curvelab](https://curvelet.org/download.php) package for curvelet
 transform.
 
@@ -142,12 +142,12 @@ Now we are done with data preprocessing and wavelet transformation.
 Now we have to perform curvelet transformation on the same samples.
 
 
-For curvelet transform we use the Curvelab package in `Matlab` that we downloaded. Please copy the `fdct_wrapping_matlab` folder in the 
+For curvelet transform we use the Curvelab package in `MATLAB` that we downloaded. Please copy the `fdct_wrapping_matlab` folder in the 
 `./AlphaDAWG/Scripts` folder. We will also need to copy the included
 `Transform_Curvelet.m` and `EMP_Transform_Curvelet.m` files from the `./AlphaDAWG/Scripts` folder to the `./AlphaDAWG/Scripts/fdct_wrapping_matlab` folder.
 
 
-Now, we have to open Matlab from terminal. For this we will need to provide the full path to your Matlab installation directory. For example, if you are using macOS type,
+Now, we have to open MATLAB from terminal. For this we will need to provide the full path to your MATLAB installation directory. For example, if you are using macOS type,
 
         /Applications/MATLAB_R20XX.app/bin/matlab  -nodesktop
 
@@ -162,7 +162,7 @@ If you are using linux the the command would be
 You have to change the directory according to your installation folder (replace R20XX with your version that is installed in your machine).
 
 
-Now we have opened Matlab. Now change the working directory of Matlab to `./fdct_wrapping_matlab` by
+Now we have opened MATLAB. Now change the working directory of MATLAB to `./fdct_wrapping_matlab` by
     
         cd ./fdct_wrapping_matlab
 
@@ -183,7 +183,7 @@ Similarly, for transofrming 100 neutral samples that are both locally sorted  an
 
         Transform_Curvelet(100, 0, 0) 
 
-Don't forget to exit matlab with
+Don't forget to exit MATLAB with
 
         exit
 
@@ -416,14 +416,14 @@ Each `64 x 64` matrix yields a total of 4096 curvelet coefficients in the `./Alp
 
 ## CSV to curvelet transformation Script
 
-Now we have to perform curvelet transformation for our empirical samples. We have to follow the same steps as we outlined in the **Curvelet transformation** section for  opening matlab in the terminal. Also, we need to set the working directory of Matlab to `./fdct_wrapping_matlab` by typing
+Now we have to perform curvelet transformation for our empirical samples. We have to follow the same steps as we outlined in the **Curvelet transformation** section for  opening MATLAB in the terminal. Also, we need to set the working directory of MATLAB to `./fdct_wrapping_matlab` by typing
     
         cd ./fdct_wrapping_matlab
 
 
 Now the following command will perform the curvelet transform on the empirical samples stored in the `./Data/VCF` folder.
 
-        EMP_Transform_Curvelet(<number of samples>))
+        EMP_Transform_Curvelet(<number of samples>)
         
 Example,
 
@@ -437,12 +437,12 @@ In the case of the example above, it will transform 1998 empirical samples that 
 
 
 This will make a matrix with \<number of samples\> number of rows and 10521 columns in
-`./Data/VCF`. Don't forget to exit matlab with
+`./Data/VCF`. Don't forget to exit MATLAB with
 
         exit
 
 
-Now we will run the following python script that will run the combined model and give empirical predictions.
+
 
 
 Now we will have to change the working directory to the `./AlphaDAWG/Scripts` folder again.
@@ -455,6 +455,7 @@ Now, let's move on to test these empirical samples using our combined model.
 Empirical Testing
 =============
 
+Now we will run the following bash script that will run the combined model and give empirical predictions.
 
 
 1. **Run the script**:
