@@ -26,11 +26,11 @@ We will need `python3` and `R` and `matlab` installed for different parts of the
 project.
 
 For `python` dependencies, please install the following packages in a `conda` virtual
-environment. Instructions for creating this virtual environment and installing the packages are available in the `conda_setup.txt` file inside  the `./AlphaDAWG-main/Scripts` folder. 
+environment. Instructions for creating this virtual environment and installing the packages are available in the `conda_setup.txt` file inside  the `./AlphaDAWG/Scripts` folder. 
 
 For `R`, the required packages can be installed by running the `install_packages.R` script in the terminal.
 
-`cd ./AlphaDAWG-main/Scripts`
+`cd ./AlphaDAWG/Scripts`
 
 
     Rscript install_packages.R
@@ -56,11 +56,11 @@ In this software, we have utilized Bash scripting to streamline all the steps, i
 
 Data Simulation
 ===========================================
-After downloading and extracting [Discoal](https://github.com/kr-colab/discoal) in our `./AlphaDAWG-main/` folder, we will need to install discoal. 
+After downloading and extracting [Discoal](https://github.com/kr-colab/discoal) in our `./AlphaDAWG/` folder, we will need to install discoal. 
 
 Please note that the default discoal functionality restricts us to generates sites only as high as 220020 but in our case we will need to change it to 1100000 or higher by going to the `discoal.h` file and changing `MAXSITES` to 1100000 or higher.
 
-Now we have to use the following command to install discoal from the `./AlphaDAWG-main/discoal-master` directory.
+Now we have to use the following command to install discoal from the `./AlphaDAWG/discoal-master` directory.
 
         make discoal
 
@@ -72,13 +72,13 @@ Users can generate (under CEU demographic model) sweep and neutral replicates us
 
         
 
-Now we need to copy the discoal executable and paste it to the `./AlphaDAWG-main/Scripts/` folder
+Now we need to copy the discoal executable and paste it to the `./AlphaDAWG/Scripts/` folder
 
 Now we will work with the data generation pipeline.
 
 First, we need to change our working directory to the folder
 
-        cd ./AlphaDAWG-main/Scripts
+        cd ./AlphaDAWG/Scripts
 
  The following command is optional and needed to make each of the bash script executatable if you are not the super user of your system. 
  
@@ -87,20 +87,20 @@ First, we need to change our working directory to the folder
 
 Now we have made `generate_replicates.sh` executable.
 
-Then running the following command will output 100 sweep observations in `./AlphaDAWG-main/Data/` folder in the following format the files
+Then running the following command will output 100 sweep observations in `./AlphaDAWG/Data/` folder in the following format the files
 are names as `sweep_0.ms`, `sweep_1.ms`... and so on.
 
         ./generate_replicates.sh sweep 100
         
-Then running the following command will output 100 neutral observations in `./AlphaDAWG-main/Data/` folder in the following format the files
+Then running the following command will output 100 neutral observations in `./AlphaDAWG/Data/` folder in the following format the files
 are names as `neut_0.ms`, `neut_1.ms`... and so on.
 
         ./generate_replicates.sh neutral 100
 
-100 samples for each class will be stored in the given in the `./AlphaDAWG-main/Data/` folder which will need to be preprocessed.
+100 samples for each class will be stored in the given in the `./AlphaDAWG/Data/` folder which will need to be preprocessed.
 
 
-Also, please note that, `./AlphaDAWG-main/AlphaDAWG_simulation_scripts/` folder we provide scripts used in our study to generate constant size (Constant_1 and Constant_2) and  fluctuating size demographic data (CEU_1 and CEU_2), which users can use to generate their own training data. 
+Also, please note that, `./AlphaDAWG/AlphaDAWG_simulation_scripts/` folder we provide scripts used in our study to generate constant size (Constant_1 and Constant_2) and  fluctuating size demographic data (CEU_1 and CEU_2), which users can use to generate their own training data. 
 
 
 
@@ -113,7 +113,7 @@ Users can preprocess the sweep and neutral .ms files using local sorting and ali
 
 
      
-Then running the following command will output 100 sweep and neutral observations that are locally sorted and alignment processed in `./AlphaDAWG-main/Data/` folder.
+Then running the following command will output 100 sweep and neutral observations that are locally sorted and alignment processed in `./AlphaDAWG/Data/` folder.
 
 Please make sure the .sh file execultable using 
 
@@ -143,8 +143,8 @@ Now we have to perform curvelet transformation on the same samples.
 
 
 For curvelet transform we use the Curvelab package in `Matlab` that we downloaded. Please copy the `fdct_wrapping_matlab` folder in the 
-`./AlphaDAWG-main/Scripts` folder. We will also need to copy the included
-`Transform_Curvelet.m` and `EMP_Transform_Curvelet.m` files from the `./AlphaDAWG-main/Scripts` folder to the `./AlphaDAWG-main/Scripts/fdct_wrapping_matlab` folder.
+`./AlphaDAWG/Scripts` folder. We will also need to copy the included
+`Transform_Curvelet.m` and `EMP_Transform_Curvelet.m` files from the `./AlphaDAWG/Scripts` folder to the `./AlphaDAWG/Scripts/fdct_wrapping_matlab` folder.
 
 
 Now, we have to open Matlab from terminal. For this we will need to provide the full path to your Matlab installation directory. For example, if you are using macOS type,
@@ -177,7 +177,7 @@ example running
 
         Transform_Curvelet(100, 1, 1) 
 
-will transform 100 sweep samples that are both locally sorted  and alignment processed and will output two matrices of size `100 x 10521`. Each `64 x 64` matrix yields a total of 10521 curvelet coefficients in the `./AlphaDAWG-main/Data/Curvelets` folder, the combined curvelets will be available and will have the following filenames: `Curvelets_sweep_parse_resized_.csv`, `Curvelets_neut_parse_resized_.csv`, `Curvelets_sweep_align_resized_.csv`, `Curvelets_neut_parse_resized_.csv`
+will transform 100 sweep samples that are both locally sorted  and alignment processed and will output two matrices of size `100 x 10521`. Each `64 x 64` matrix yields a total of 10521 curvelet coefficients in the `./AlphaDAWG/Data/Curvelets` folder, the combined curvelets will be available and will have the following filenames: `Curvelets_sweep_parse_resized_.csv`, `Curvelets_neut_parse_resized_.csv`, `Curvelets_sweep_align_resized_.csv`, `Curvelets_neut_parse_resized_.csv`
 
 Don't forget to exit matlab with
 
@@ -247,7 +247,7 @@ It will output:
 
 Training Wavelet model with 80 train observations per class, 20 test observations per class, and alignment processing: ...
 ```
-The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG-main/Data/Results` and will have the following format: `Lin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
+The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG/Data/Results` and will have the following format: `Lin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
 
 
 Nonlinear Model training and testing
@@ -306,7 +306,7 @@ It will output:
 
 Training Wavelet model with 80 train observations per class, 20 test observations per class, and alignment processing: ...
 ```
-The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG-main/Data/Results` and will have the following format: `Nonlin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
+The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG/Data/Results` and will have the following format: `Nonlin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
 
 
 
@@ -345,9 +345,9 @@ Now run the following command:
 
 
 
-This will populate the `./AlphaDAWG-main/Data/VCF` folder with the .ms files `output_0.ms`, `output_1.ms`.. and so on.
+This will populate the `./AlphaDAWG/Data/VCF` folder with the .ms files `output_0.ms`, `output_1.ms`.. and so on.
 
-Please note that an example sample file CEU22.vcf has been included in `./AlphaDAWG-main/Data/` folder which you can utilize. 
+Please note that an example sample file CEU22.vcf has been included in `./AlphaDAWG/Data/` folder which you can utilize. 
 
 Please note the files have to be in the format "CEUX.vcf" where X is the chromosome number. Please adhere to this format in the file naming process.
 
@@ -382,7 +382,7 @@ We pass the chromosome number as an argument:
 ./EMP_preprocess.sh 1998
 ```
 
-This will convert the .ms files to .csv, perform local sorting, and alignment processing on the .ms files. This will populate the `./AlphaDAWG-main/Data/VCF` folder with the alignment processed .csv files: `output_0.csv`, `output_1.csv`.. and so on. Also, a file named `Starting Positions of the samples.csv` will be saved in the `./AlphaDAWG-main/Data/VCF` folder that is of length 1998 representing the chromosomal positions.
+This will convert the .ms files to .csv, perform local sorting, and alignment processing on the .ms files. This will populate the `./AlphaDAWG/Data/VCF` folder with the alignment processed .csv files: `output_0.csv`, `output_1.csv`.. and so on. Also, a file named `Starting Positions of the samples.csv` will be saved in the `./AlphaDAWG/Data/VCF` folder that is of length 1998 representing the chromosomal positions.
 
 ## CSV to wavelet transformation Script
 
@@ -406,7 +406,7 @@ Now run the following command:
 
         ./vcf_wav.sh ../Data 1998
 
-Each `64 x 64` matrix yields a total of 4096 curvelet coefficients in the `./AlphaDAWG-main/Data/VCF` folder, the combined curvelets will be available in the same folder and will have the following filename: `EMP_Curvelets_.csv`.
+Each `64 x 64` matrix yields a total of 4096 curvelet coefficients in the `./AlphaDAWG/Data/VCF` folder, the combined curvelets will be available in the same folder and will have the following filename: `EMP_Curvelets_.csv`.
 
 
 
@@ -428,7 +428,7 @@ Example,
  The output will be collected in a matrix, stored in `./Data/VCF` folder.        
 
 In the case of the example above, it will transform 1998 empirical samples that are alignment processed and will output a matrix of size
-`1998 x 10521` in the `./Data/VCF` folder. Each `64 x 64` matrix yields a total of 10521 curvelet coefficients in the `./AlphaDAWG-main/Data/VCF` folder, the combined curvelets will be available and will have the following format: `EMP_Curvelets_.csv`. 
+`1998 x 10521` in the `./Data/VCF` folder. Each `64 x 64` matrix yields a total of 10521 curvelet coefficients in the `./AlphaDAWG/Data/VCF` folder, the combined curvelets will be available and will have the following format: `EMP_Curvelets_.csv`. 
 
 
 
@@ -441,7 +441,7 @@ This will make a matrix with \<number of samples\> number of rows and 10521 colu
 Now we will run the following python script that will run the combined model and give empirical predictions.
 
 
-Now we will have to change the working directory to the `./AlphaDAWG-main/Scripts` folder again.
+Now we will have to change the working directory to the `./AlphaDAWG/Scripts` folder again.
         
         cd ..
 
@@ -497,13 +497,13 @@ Use alignment processing? (Press 1 for Yes, 0 for No):
 1
 Training nonlinear Wavelet-Curvelet model with 80 train observations per class, 20 test simulated observations per class, and alignment processing: ...
 ```
-The probabilities of the empirical test samples will be saved in the  `./AlphaDAWG-main/Data/VCF` folder using the following name prob_vcf.csv. 
+The probabilities of the empirical test samples will be saved in the  `./AlphaDAWG/Data/VCF` folder using the following name prob_vcf.csv. 
 
 Please delete the empirical files after the model testing is done to ensure correct reading of files.
 
 Trained models
 =============
-We have made available the trained mdoels in the `./AlphaDAWG-main/Trained models` directory inside `./AlphaDAWG-main/Trained models` folder. These models are using the CEU_2 dataset with 10000 train observations per class and 1000 test observations per class.
+We have made available the trained mdoels in the `./AlphaDAWG/Trained models` directory inside `./AlphaDAWG/Trained models` folder. These models are using the CEU_2 dataset with 10000 train observations per class and 1000 test observations per class.
 
 *Note:* The current implementation is limited to phased data but we intend to integrate the option to operate on unphased data in the future.
 
