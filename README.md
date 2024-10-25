@@ -214,7 +214,7 @@ Now run the following command:
 
 This script allows users to train three nonlinear α-DAWG models for detecting positive natural selection: α-DAWG[W], α-DAWG[C], and α-DAWG[W-C]. The user can specify which linear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
 
-This shell function has two arguments- <replicate_type> and <number_of_replicates>. <replicate_type> takes in [sweep|neutral] as input and <number_of_replicates> takes any integer as an input.
+
 
 ## How to Run
     
@@ -256,7 +256,7 @@ Now run the following command:
 
 This script allows users to train three nonlinear α-DAWG models for detecting positive natural selection: α-DAWG[W], α-DAWG[C], and α-DAWG[W-C]. The user can specify which nonlinear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
 
-This shell function has two arguments- <replicate_type> and <number_of_replicates>. <replicate_type> takes in [sweep|neutral] as input and <number_of_replicates> takes any integer as an input.
+
 
 ## How to Run
     
@@ -437,7 +437,7 @@ Now run the following command:
 
 This script allows users to train the combined nonlinear α-DAWG model. The user can specify which nonlinear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
 
-This shell function has two arguments- <replicate_type> and <number_of_replicates>. <replicate_type> takes in [sweep|neutral] as input and <number_of_replicates> takes any integer as an input.
+
 
 ## How to Run
     
