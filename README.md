@@ -223,7 +223,7 @@ This script allows users to train three nonlinear α-DAWG models for detecting p
    - <model_choice> 1: Use the Wavelet model, 2: Use the Curvelet model, 3: Use the Wavelet-Curvelet combined model
    - <number_of_train_observations> Number of training observations per class.
    - <number_of_test_observations> Number of test observations per class.
-   - <alignment> 1 to apply alignment preprocessing, 0 otherwise.
+   - <alignment><alignment> 1 to apply alignment preprocessing, 0 otherwise.
    
 
 ### Example Usage
