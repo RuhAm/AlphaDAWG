@@ -244,12 +244,12 @@ Nonlinear Model training and testing
 
 Please make sure the .sh file execultable using
 
-        chmod +x lin_models.sh
+        chmod +x nonlin_models.sh
 
 Now run the following command:
 
 ```bash
-    ./lin_models.sh 
+    ./nonlin_models.sh 
 ```
 
     
