@@ -37,7 +37,7 @@ def process_csv(file_prefix, i):
         d = resize(sym_sortedA, (64, 64))#, anti_aliasing=True)
         pd.DataFrame(d).to_csv(f"../Data/{file_prefix}_parse_resized_{i}.csv")#, index=False)
 
-        print(f'Saving locally sorted and resized {file_prefix} observations Iteration: {i}')
+        print(f'sorted and resized {file_prefix} observations Iteration: {i}')
     except Exception as e:
         print(f"Error processing {file_prefix}_{i}: {e}")
 

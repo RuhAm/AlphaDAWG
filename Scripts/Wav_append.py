@@ -36,8 +36,8 @@ np.shape(d)
 
 np.savetxt("../Data/Wavelets/W_combined_neut_align.csv",d, delimiter=",")
 with open('../Data/Wavelets/W_combined_neut_align.csv', 'ab') as f:
-    for i in range(1,int(observations)-1):
-        df=pd.read_csv("../Data/Wavelets/W_neut_align_"+str(i+1)+".csv",index_col=0)
+    for i in range(1,int(observations)):
+        df=pd.read_csv("../Data/Wavelets/W_neut_align_"+str(i)+".csv",index_col=0)
         d=np.asarray(df)
         d=np.transpose(d)
         np.savetxt(f, d, delimiter=",")
@@ -68,8 +68,8 @@ d
 
 np.savetxt("../Data/Wavelets/W_combined_sweep_align.csv",d, delimiter=",")
 with open('../Data/Wavelets/W_combined_sweep_align.csv', 'ab') as f:
-    for i in range(1,int(observations)-1):
-        df=pd.read_csv("../Data/Wavelets/W_sweep_align_"+str(i+1)+".csv",index_col=0)
+    for i in range(1,int(observations)):
+        df=pd.read_csv("../Data/Wavelets/W_sweep_align_"+str(i)+".csv",index_col=0)
         d=np.asarray(df)
         d=np.transpose(d)
         np.savetxt(f, d, delimiter=",")
@@ -85,7 +85,7 @@ d=np.transpose(d)
 
 np.savetxt("../Data/Wavelets/W_combined_sweep_parse.csv",d, delimiter=",")
 with open('../Data/Wavelets/W_combined_sweep_parse.csv', 'ab') as f:
-    for i in range(1,int(observations)-1):
+    for i in range(1,int(observations)):
         df=pd.read_csv("../Data/Wavelets/W_sweep_parse_resized_"+str(i)+".csv",index_col=0)
         d=np.asarray(df)
         d=np.transpose(d)
@@ -99,7 +99,7 @@ d=np.transpose(d)
 
 np.savetxt("../Data/Wavelets/W_combined_neut_parse.csv",d, delimiter=",")
 with open('../Data/Wavelets/W_combined_neut_parse.csv', 'ab') as f:
-    for i in range(1,int(observations)-1):
+    for i in range(1,int(observations)):
         df=pd.read_csv("../Data/Wavelets/W_neut_parse_resized_"+str(i)+".csv",index_col=0)
         d=np.asarray(df)
         d=np.transpose(d)
