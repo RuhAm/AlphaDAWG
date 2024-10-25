@@ -1,6 +1,28 @@
 #!/bin/bash
 
-# Function to train the wavelet model
+print_help() {
+    echo "Usage: $0 <model_choice> <number_of_train_observation> <number_of_test_observation> <alignment>"
+    echo
+    echo "Arguments:"
+    echo "  model_choice: "
+	#echo "				  1 for Wavelet model"
+    #echo "				  2 for Curvelet model"
+    echo "				  1 for combined model"
+    echo "  number_of_train_observation: total number of observation for training"
+	echo "  number_of_test_observation: total number of observation for test"
+    echo "  alignment: "
+	echo "			   1 for alignment"
+    echo "			   0 for no alignment"
+    echo
+    echo "Example:"
+    echo "  $0 1 80 20 1    # train combined combined model with 80 training and 20 test observation using alignment processing"
+}
+
+if [ "$#" -ne 4 ]; then
+    echo "Error: Incorrect number of arguments."
+    print_help  # Call the help function
+    exit 1
+fi
 
 
 # Function to train the wavelet-curvelet combined model
@@ -9,31 +31,27 @@ train_wavelet_curvelet() {
   python3 Alpha_emp.py --train $1 --test $2 --alignment $3
 }
 
-# Get user input for the number of train and test observations
-echo "Enter the number of train observations per class:"
-read train_obs
 
-echo "Enter the number of test observations per class:"
-read test_obs
 
-# Get user input for model selection
-echo "Choose the model to be trained:"
-#echo "1 - Wavelet"
-#echo "2 - Curvelet"
-echo "1 - Wavelet-Curvelet"
-read model_choice
 
-# Get user input for alignment processing
-echo "Use alignment processing? (Press 1 for Yes, 0 for No):"
-read alignment_choice
+
+model_choice=$1
+train_obs=$2
+test_obs=$3
+alignment_choice=$4
+
+
+# echo "$0 $1 $2 $3 $4"
+# echo "$model_choice"
 
 # Call the appropriate function based on the user's choice
 case $model_choice in
-
   1)
     train_wavelet_curvelet $train_obs $test_obs $alignment_choice
     ;;
+ 
   *)
-    echo "Invalid choice! Please enter 1 for for Wavelet-Curvelet."
+    echo "Invalid choice! "
     ;;
 esac
+
