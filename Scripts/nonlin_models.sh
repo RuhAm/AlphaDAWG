@@ -1,77 +1,63 @@
 #!/bin/bash
 
-print_help() {
-    echo "Usage: $0 <model_choice> <number_of_train_observation> <number_of_test_observation> <alignment>"
-    echo
-    echo "Arguments:"
-    echo "  model_choice: "
-	echo "				  1 for Wavelet model"
-    echo "				  2 for Curvelet model"
-    echo "				  3 for Wavelet-Curvelet combined model"
-    echo "  number_of_train_observation: total number of observation for training"
-	echo "  number_of_test_observation: total number of observation for test"
-    echo "  alignment: "
-	echo "			   1 for alignment"
-    echo "			   0 for no alignment"
-    echo
-    echo "Example:"
-    echo "  $0 3 80 20 1    # train wavelet-curvelet combined model with 80 training and 20 test observation using alignment processing"
-}
-
-
-# Check if the correct number of arguments is provided
-if [ "$#" -ne 4 ]; then
-    echo "Error: Incorrect number of arguments."
-    print_help  # Call the help function
-    exit 1
-fi
-
-
-
 # Function to train the wavelet model
 train_wavelet() {
   echo "Training Wavelet model with $1 train observations per class, $2 test observations per class, and alignment processing: $3..."
-  python3 Keras_wav_software.py --train $1 --test $2 --alignment $3
+  python3 Keras_wav_software.py --train "$1" --test "$2" --alignment "$3"
 }
 
 # Function to train the curvelet model
 train_curvelet() {
   echo "Training Curvelet model with $1 train observations per class, $2 test observations per class, and alignment processing: $3..."
-  python3 Keras_crv_software.py --train $1 --test $2 --alignment $3
+  python3 Keras_crv_software.py --train "$1" --test "$2" --alignment "$3"
 }
 
 # Function to train the wavelet-curvelet combined model
-train_wavelet_curvelet() {
+train_wavelet-curvelet() {
   echo "Training Wavelet-Curvelet model with $1 train observations per class, $2 test observations per class, and alignment processing: $3..."
-  python3 Keras_C+W-software.py --train $1 --test $2 --alignment $3
+  python3 Keras_C+W-software.py --train "$1" --test "$2" --alignment "$3"
 }
 
+# Check for the correct number of arguments
+if [ "$#" -lt 7 ]; then
+  echo "Usage: ./wav.sh {train_wavelet|train_curvelet|train_wavelet_curvelet} --train <train_size> --test <test_size> --alignment <true/false>"
+  echo "Example: ./wav.sh train_wavelet --train 100 --test 20 --alignment true"
+  exit 1
+fi
 
-
-
-
+# Parse command-line arguments
 model_choice=$1
-train_obs=$2
-test_obs=$3
-alignment_choice=$4
+shift
 
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+    --train) train_obs="$2"; shift ;;
+    --test) test_obs="$2"; shift ;;
+    --alignment) alignment_choice="$2"; shift ;;
+    *) echo "Unknown parameter passed: $1"; exit 1 ;;
+  esac
+  shift
+done
 
-# echo "$0 $1 $2 $3 $4"
-# echo "$model_choice"
+# Validate alignment input
+if [[ "$alignment_choice" != "true" && "$alignment_choice" != "false" ]]; then
+  echo "Invalid alignment choice! Please enter 'true' or 'false'."
+  exit 1
+fi
 
-# Call the appropriate function based on the user's choice
+# Call the appropriate function based on the model choice
 case $model_choice in
-  1)
-    train_wavelet $train_obs $test_obs $alignment_choice
+  train_wavelet)
+    train_wavelet "$train_obs" "$test_obs" "$alignment_choice"
     ;;
-  2)
-    train_curvelet $train_obs $test_obs $alignment_choice
+  train_curvelet)
+    train_curvelet "$train_obs" "$test_obs" "$alignment_choice"
     ;;
-  3)
-    train_wavelet_curvelet $train_obs $test_obs $alignment_choice
+  train_wavelet-curvelet)
+    train_wavelet-curvelet "$train_obs" "$test_obs" "$alignment_choice"
     ;;
   *)
-    echo "Invalid choice! Please enter 1 for Wavelet, 2 for Curvelet, or 3 for Wavelet-Curvelet."
+    echo "Invalid model choice! Please enter 'train_wavelet', 'train_curvelet', or 'train_wavelet-curvelet'."
+    exit 1
     ;;
 esac
-

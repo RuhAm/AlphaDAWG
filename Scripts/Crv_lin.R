@@ -1,34 +1,34 @@
-
-
 library(abind)
 library(glmnet)
 library(caret)
 library(waveslim)
-#library(MLmetrics)
-#library(plotly)
 library(dplyr)
 
-
 # Parse command-line arguments manually
-
 args <- commandArgs(trailingOnly = TRUE)
 
 # Initialize default values for arguments
 train_observations <- 80
 test_observations <- 10
-align <- 0
+align <- FALSE  # Default to false (no alignment)
 
 # Loop through arguments and assign based on flags
 for (i in seq(1, length(args), by = 2)) {
   flag <- args[i]
-  value <- as.integer(args[i + 1])
+  value <- args[i + 1]
   
   if (flag == "--train") {
-    train_observations <- value
+    train_observations <- as.integer(value)
   } else if (flag == "--test") {
-    test_observations <- value
+    test_observations <- as.integer(value)
   } else if (flag == "--alignment") {
-    align <- value
+    if (tolower(value) == "true") {
+      align <- TRUE
+    } else if (tolower(value) == "false") {
+      align <- FALSE
+    } else {
+      stop("Invalid value for --alignment. Please use 'true' or 'false'.")
+    }
   } else {
     stop(paste("Unknown flag:", flag))
   }
@@ -39,16 +39,8 @@ cat("Training with", train_observations, "train observations and", test_observat
 cat("Alignment processing:", align, "\n")
 
 # Continue with the rest of your script logic...
-if (align == 0) {
-  align_val <- "parse"
-} else if (align == 1) {
-  align_val <- "align"
-} else {
-  stop("Invalid value for alignment. Please provide 0 for no alignment or 1 for alignment.")
-}
+align_val <- ifelse(align, "align", "parse")
 
-# Load data and proceed with your existing code...
-print("start")
 #S <- read.csv(paste0("../Data/Curvelets/Curvelets_sweep_",align_val,"_resized_.csv"), header = FALSE)#, row.names = NULL)
 S <- read.csv(paste0("../Data/Curvelets/Curvelets_sweep_", align_val, "_resized_.csv"), header = FALSE)#, row.names=1)
 
@@ -171,6 +163,5 @@ write.csv(xtab, file = paste0('../Data/Results/Lin_CM_CRV_', align_val, '.csv'))
 
 #write.csv(df3, file = paste0('../Data/Results/Pred W', align_val, '.csv'))
 #write.csv(xtab, file = paste0('../Data/Results/CM W', align_val, '.csv'))
-
 
 
