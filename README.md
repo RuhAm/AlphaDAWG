@@ -196,94 +196,75 @@ Now we will have to change the working directory to the Scripts folder again.
 
 Linear Model training and testing
 ===========================================
+This script allows users to train three nonlinear α-DAWG models for detecting positive natural selection: α-DAWG[W], α-DAWG[C], and α-DAWG[W-C]. The user can specify which linear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not.
+
+## How to Run
+
+        ./lin_models.sh {train_wavelet|train_curvelet|train_wavelet-curvelet} --train <train_size> --test <test_size> --alignment <true/false>
 
 
-1. **Run the script**:
+- `{train_wavelet|train_curvelet|train_wavelet-curvelet}` Specifies the model to train:
+   - `<train_wavelet>` Runs the Wavelet model
+   - `<train_curvelet>` Runs the Curvelet model
+   - `<train_wavelet-curvelet>` Runs the combined Wavelet-Curvelet model
+
+{train_wavelet|train_curvelet|train_wavelet-curvelet}: Specifies the model to train:
+train_wavelet: Runs the Wavelet model.
+train_curvelet: Runs the Curvelet model.
+train_wavelet-curvelet: Runs the combined Wavelet-Curvelet model.
+- --train <train_size>: Specifies the number of observations in the training dataset.
+- --test <test_size>: Specifies the number of observations in the test dataset.
+- --alignment <true/false>: Enables (if set true) or disables (if set false) alignment processing in the model:
 
 Please make sure the .sh file execultable using
 
         chmod +x lin_models.sh
-
-Now run the following command:
-
-```bash
-    ./lin_models.sh 
-```
-
-    
-
-This script allows users to train three nonlinear α-DAWG models for detecting positive natural selection: α-DAWG[W], α-DAWG[C], and α-DAWG[W-C]. The user can specify which linear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
-
-
-
-## How to Run
-    
-        ./lin_models.sh <model_choice> <number_of_train_observations> <number_of_test_observations> <alignment>
-
-   - `<model_choice>` 1: Use the Wavelet model, 2: Use the Curvelet model, 3: Use the Wavelet-Curvelet combined model
-   - `<number_of_train_observations>` Number of training observations per class.
-   - `<number_of_test_observations>` Number of test observations per class.
-   - `<alignment>` 1 to apply alignment preprocessing, 0 otherwise.
-   
-
 ### Example Usage
-
 To train the linear Wavelet model with 80 training observations per class, 20 test observations per class, and alignment preprocessing applied:
 
-```bash
-./lin_models.sh 1 80 20 1
-```
+        ./lin_models.sh train_wavelet --train 80 --test 20 --alignment true
+        
+
 The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG/Data/Results` and will have the following format: `Lin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
+
 
 
 Nonlinear Model training and testing
 ===========================================
 
+This script allows users to train three nonlinear α-DAWG models for detecting positive natural selection: α-DAWG[W], α-DAWG[C], and α-DAWG[W-C]. The user can specify which linear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not.
 
-1. **Run the script**:
+## How to Run
+
+        ./lin_models.sh {train_wavelet|train_curvelet|train_wavelet-curvelet} --train <train_size> --test <test_size> --alignment <true/false>
+
+
+- `{train_wavelet|train_curvelet|train_wavelet-curvelet}` Specifies the model to train:
+   - `<train_wavelet>` Runs the Wavelet model
+   - `<train_curvelet>` Runs the Curvelet model
+   - `<train_wavelet-curvelet>` Runs the combined Wavelet-Curvelet model
+
+{train_wavelet|train_curvelet|train_wavelet-curvelet}: Specifies the model to train:
+train_wavelet: Runs the Wavelet model.
+train_curvelet: Runs the Curvelet model.
+train_wavelet-curvelet: Runs the combined Wavelet-Curvelet model.
+- --train <train_size>: Specifies the number of observations in the training dataset.
+- --test <test_size>: Specifies the number of observations in the test dataset.
+- --alignment <true/false>: Enables (if set true) or disables (if set false) alignment processing in the model:
 
 Please make sure the .sh file execultable using
 
         chmod +x nonlin_models.sh
-
-Now run the following command:
-
-```bash
-    ./nonlin_models.sh 
-```
-
-    
-
-This script allows users to train three nonlinear α-DAWG models for detecting positive natural selection: α-DAWG[W], α-DAWG[C], and α-DAWG[W-C]. The user can specify which nonlinear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
-
-
-
-## How to Run
-    
-        ./nonlin_models.sh <model_choice> <number_of_train_observations> <number_of_test_observations> <alignment>
-
-   - `<model_choice>` 1: Use the Wavelet model, 2: Use the Curvelet model, 3: Use the Wavelet-Curvelet combined model
-   - `<number_of_train_observations>` Number of training observations per class.
-   - `<number_of_test_observations>` Number of test observations per class.
-   - `<alignment>` 1 to apply alignment preprocessing, 0 otherwise.
-   
-
 ### Example Usage
-
 To train the linear Wavelet model with 80 training observations per class, 20 test observations per class, and alignment preprocessing applied:
 
-```bash
-./nonlin_models.sh 1 80 20 1
-```
+        ./nonlin_models.sh train_wavelet --train 80 --test 20 --alignment true
+        
+
 The probabilities, prediction and confusion matrices will be saved in the following folder `./AlphaDAWG/Data/Results` and will have the following format: `Nonlin_<Prob|Pred|CM>_<W|C|CW>_<align|parse>.csv`
-
-
-
 
 Empirical Application
 ===========================================
-
-
 
 
 ## VCF to MS Conversion
@@ -429,33 +410,27 @@ Please make sure the .sh file execultable using
 
 Now run the following command:
 
-```bash
-    ./Alpha_emp.sh
-```
 
-    
+This script allows users to train the combined nonlinear α-DAWG model. The user can specify the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
 
-This script allows users to train the combined nonlinear α-DAWG model. The user can specify which nonlinear model to run, the number of training observations, number of testing observations, and whether to apply alignment processing or use or not..
-
+./Alpha_emp.sh --train <train_size> --test <test_size> --alignment <true/false>
 
 
 ## How to Run
     
-        ./Alpha_emp.sh <model_choice> <number_of_train_observations> <number_of_test_observations> <alignment>
+        ./Alpha_emp.sh <number_of_train_observations> <number_of_test_observations> <alignment>
 
-   - `<model_choice>` 1: Use the Wavelet-Curvelet combined model
-   - `<number_of_train_observations>` Number of training observations per class.
-   - `<number_of_test_observations>` Number of test observations per class.
-   - `<alignment>` 1 to apply alignment preprocessing, 0 otherwise.
-   
+- --train <train_size>: Specifies the number of observations in the training dataset.
+- --test <test_size>: Specifies the number of observations in the test dataset.
+- --alignment <true/false>: Enables (if set true) or disables (if set false) 
 
 ### Example Usage
 
 To train the nonlinear combined model with 80 training observations per class, 20 test observations per class, and alignment preprocessing applied:
 
-```bash
-./Alpha_emp.sh 1 80 20 1
-```
+        ./Alpha_emp.sh --train 80 --test 20 --alignment true
+
+
 The probabilities of the empirical test samples will be saved in the  `./AlphaDAWG/Data/VCF` folder using the following name prob_vcf.csv. 
 
 Please delete the empirical files after the model testing is done to ensure correct reading of files.
